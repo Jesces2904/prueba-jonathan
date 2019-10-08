@@ -33,6 +33,37 @@ const makeSelectRepos = () =>
     globalState => globalState.userData.repositories,
   );
 
+const makeSelectTable = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.tables,
+  );
+
+const makeSelectTableToModify = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.table,
+  );
+
+const makeSelectTypeShape = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.tipoForma,
+  );
+
+const makeSelectTypeMaterial = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.tipoMaterial,
+  );
+
+const makeSelectTableModify = () => {
+  createSelector(
+    selectGlobal,
+    globalState => globalState.id,
+  );
+};
+
 const makeSelectLocation = () =>
   createSelector(
     selectRouter,
@@ -45,5 +76,10 @@ export {
   makeSelectLoading,
   makeSelectError,
   makeSelectRepos,
+  makeSelectTable,
   makeSelectLocation,
+  makeSelectTableModify,
+  makeSelectTableToModify,
+  makeSelectTypeShape,
+  makeSelectTypeMaterial,
 };

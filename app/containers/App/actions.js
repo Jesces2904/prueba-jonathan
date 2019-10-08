@@ -15,7 +15,27 @@
  *    }
  */
 
-import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR } from './constants';
+import {
+  LOAD_REPOS,
+  LOAD_REPOS_SUCCESS,
+  LOAD_REPOS_ERROR,
+  LOAD_TABLES,
+  LOAD_TABLES_SUCCESS,
+  LOAD_TABLES_ERROR,
+  LOAD_TABLE,
+  LOAD_TABLE_SUCCESS,
+  LOAD_TABLE_ERROR,
+  SET_ID_MATERIAL,
+  SET_ID_SHAPE,
+  SET_VALUE_ALTO,
+  SET_VALUE_LARGO,
+  SET_VALUE_ANCHO,
+  MODIFY_TABLE,
+  LOAD_DATA,
+  LOAD_DATA_ERROR,
+  LOAD_DATA_SUCCESS,
+  CREATE_TABLE,
+} from './constants';
 
 /**
  * Load the repositories, this action starts the request saga
@@ -55,5 +75,119 @@ export function repoLoadingError(error) {
   return {
     type: LOAD_REPOS_ERROR,
     error,
+  };
+}
+
+// Tables Load
+
+export function loadTables() {
+  return {
+    type: LOAD_TABLES,
+  };
+}
+
+export function tablesLoaded(tables) {
+  return {
+    type: LOAD_TABLES_SUCCESS,
+    tables,
+  };
+}
+
+export function tablesLoadingError(error) {
+  return {
+    type: LOAD_TABLES_ERROR,
+    error,
+  };
+}
+
+// Table Load
+
+export function loadTable() {
+  return {
+    type: LOAD_TABLE,
+  };
+}
+
+export function tableLoaded(table, tipoForma, tipoMaterial) {
+  return {
+    type: LOAD_TABLE_SUCCESS,
+    table,
+    tipoForma,
+    tipoMaterial,
+  };
+}
+
+export function tableLoadingError(error) {
+  return {
+    type: LOAD_TABLE_ERROR,
+    error,
+  };
+}
+
+export function loadData() {
+  return {
+    type: LOAD_DATA,
+  };
+}
+
+export function dataLoaded(tipoForma, tipoMaterial) {
+  return {
+    type: LOAD_DATA_SUCCESS,
+    tipoForma,
+    tipoMaterial,
+  };
+}
+
+export function dataLoadingError(error) {
+  return {
+    type: LOAD_DATA_ERROR,
+    error,
+  };
+}
+
+export function setIdShapeSelected(id) {
+  return {
+    type: SET_ID_SHAPE,
+    id,
+  };
+}
+
+export function setIdMaterialSelected(id) {
+  return {
+    type: SET_ID_MATERIAL,
+    id,
+  };
+}
+
+export function setValueAlto(value) {
+  return {
+    type: SET_VALUE_ALTO,
+    value,
+  };
+}
+
+export function setValueAncho(value) {
+  return {
+    type: SET_VALUE_ANCHO,
+    value,
+  };
+}
+
+export function setValueLargo(value) {
+  return {
+    type: SET_VALUE_LARGO,
+    value,
+  };
+}
+
+export function modifyTable() {
+  return {
+    type: MODIFY_TABLE,
+  };
+}
+
+export function createTable() {
+  return {
+    type: CREATE_TABLE,
   };
 }
